@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Boom de los Alquileres Temporarios en Argentina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .highlight-number {
+            font-weight: 900;
+            color: #2563eb; /* blue-600 */
+        }
+        .section-title {
+            font-weight: 900;
+            font-size: 1.875rem; /* text-3xl */
+            line-height: 2.25rem;
+            color: #1e3a8a; /* blue-900 */
+            border-bottom: 3px solid #60a5fa; /* blue-400 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .icon-bg {
+            background-color: #dbeafe; /* blue-100 */
+            border-radius: 9999px;
+            padding: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-blue-900 mb-2">El Boom de los Alquileres Temporarios</h1>
+            <p class="text-xl text-gray-600">Una mirada al mercado en Argentina</p>
+        </header>
+
+        <!-- National Overview -->
+        <section class="mb-16">
+            <h2 class="section-title">Panorama Nacional</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-center">
+                <div class="card">
+                    <div class="icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-8h1m-1 4h1m-1 4h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" /></svg>
+                    </div>
+                    <p class="text-4xl highlight-number">~30.000</p>
+                    <p class="text-lg text-gray-700 mt-2">Ofertas activas de alquiler temporal en todo el país.</p>
+                </div>
+                <div class="card">
+                     <div class="icon-bg">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <p class="text-4xl highlight-number">50%</p>
+                    <p class="text-lg text-gray-700 mt-2">De la oferta nacional se concentra en la Ciudad de Buenos Aires.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CABA Focus -->
+        <section class="mb-16">
+            <h2 class="section-title">Foco: Ciudad de Buenos Aires (CABA)</h2>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Growth -->
+                <div class="card lg:col-span-1">
+                    <div class="icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Crecimiento Exponencial</h3>
+                    <p class="text-gray-600">La cantidad de propiedades para alquiler temporario creció un <span class="highlight-number text-3xl">62%</span> en solo 4 años.</p>
+                    <div class="mt-4 space-y-2">
+                        <p><strong>2019:</strong> 9.338 propiedades</p>
+                        <p><strong>Hoy:</strong> +15.000 propiedades</p>
+                    </div>
+                </div>
+
+                <!-- Comparison -->
+                <div class="card lg:col-span-2 bg-blue-800 text-white">
+                    <h3 class="text-2xl font-bold mb-4 text-center text-blue-200">Temporario vs. Tradicional</h3>
+                    <p class="text-center text-lg mb-6">A inicios de 2024, la oferta temporal era abrumadoramente mayor.</p>
+                    <div class="flex items-center justify-center space-x-6">
+                        <div class="text-center">
+                            <p class="text-5xl font-black text-white">~20.000</p>
+                            <p class="mt-2 text-blue-200">Unidades en plataformas<br/>(Alquiler Temporario)</p>
+                        </div>
+                        <div class="text-4xl font-bold text-blue-300">15x MÁS</div>
+                        <div class="text-center">
+                            <p class="text-5xl font-black text-white">&lt;1.000</p>
+                            <p class="mt-2 text-blue-200">Unidades disponibles<br/>(Alquiler Tradicional)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demand Evolution -->
+                <div class="card lg:col-span-3">
+                    <h3 class="text-2xl font-bold mb-4">Evolución de la Demanda</h3>
+                    <p class="mb-4 text-gray-600">Las búsquedas de alquileres temporarios tuvieron picos importantes, aunque mostraron una corrección reciente.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-8">
+                      <div class="bg-blue-600 h-8 rounded-full flex items-center justify-center" style="width: 70%;">
+                        <span class="font-medium text-white">Pico 2021-2022: 10-11% de búsquedas</span>
+                      </div>
+                    </div>
+                     <div class="w-full bg-gray-200 rounded-full h-8 mt-3">
+                      <div class="bg-blue-400 h-8 rounded-full flex items-center justify-center" style="width: 40%;">
+                        <span class="font-medium text-blue-900">2023: 5-7% de búsquedas</span>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2 text-center">Analistas atribuyen la baja reciente a cambios normativos y factores económicos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atlantic Coast Focus -->
+        <section class="mb-12">
+            <h2 class="section-title">Foco: Costa Atlántica</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                     <div class="icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Demanda Estacional</h3>
+                    <p class="text-gray-600">Al inicio de la temporada de verano, las búsquedas online de propiedades en la costa han llegado a saltar un <span class="highlight-number text-3xl">79%</span>.</p>
+                    <p class="mt-4"><strong>Destinos más buscados:</strong></p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Villa Gesell & Pinamar (Casas)</li>
+                        <li>Mar del Plata & Miramar (Deptos)</li>
+                    </ul>
+                </div>
+                 <div class="card">
+                     <div class="icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.125-1.274-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.125-1.274.356-1.857m0 0a3.001 3.001 0 01-2.772 0M11 15a4 4 0 110-8 4 4 0 010 8z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Proyección Turística</h3>
+                    <p class="text-gray-600">Mar del Plata proyectó recibir <span class="highlight-number text-3xl">1,3 millones</span> de turistas solo en enero de 2025, lo que impulsa la actividad de renta temporaria.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer/Sources -->
+        <footer class="text-center mt-16 pt-6 border-t border-gray-300">
+            <p class="text-sm text-gray-500">Fuentes: Datos extraídos de lavozinmobiliaria.com.ar, Cieri (2022), Eleisegui (observatorioamba.org, 2023), Ullmer (2024), comercioyjusticia.info (2019), Filloy (2024).</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
