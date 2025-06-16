@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Impacto Económico del Turismo en Buenos Aires</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .highlight-number {
+            font-weight: 900;
+            color: #059669; /* emerald-600 */
+        }
+        .section-title {
+            font-weight: 900;
+            font-size: 1.875rem; /* text-3xl */
+            line-height: 2.25rem;
+            color: #064e3b; /* emerald-900 */
+            border-bottom: 3px solid #6ee7b7; /* emerald-400 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .icon-bg {
+            background-color: #d1fae5; /* emerald-100 */
+            border-radius: 9999px;
+            padding: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+        .card-content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-emerald-900 mb-2">Turismo: Motor Económico de Buenos Aires</h1>
+            <p class="text-xl text-gray-600">Un análisis comparativo del impacto en CABA y PBA</p>
+        </header>
+
+        <!-- Main Comparison -->
+        <div class="grid lg:grid-cols-2 gap-12">
+            
+            <!-- CABA Column -->
+            <div>
+                <h2 class="section-title text-center">Ciudad de Buenos Aires (CABA)</h2>
+                <div class="space-y-8">
+                    <div class="card">
+                        <div class="text-center">
+                            <div class="icon-bg mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Aporte al PBI de la Ciudad</h3>
+                            <p class="text-4xl highlight-number">3% al 5.5%</p>
+                            <p class="text-gray-600 mt-2">(Equivalente a ~USD 11 mil millones en 2019)</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="text-center">
+                             <div class="icon-bg mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Generación de Empleo</h3>
+                            <p class="text-4xl highlight-number">4% al 5%</p>
+                            <p class="text-gray-600 mt-2">(+280.000 puestos de trabajo pre-pandemia)</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="text-center">
+                            <div class="icon-bg mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Principal Destino Internacional</h3>
+                             <p class="text-gray-600 mt-2">Recibía más de <span class="highlight-number text-2xl">3 millones</span> de visitantes extranjeros anualmente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PBA Column -->
+            <div>
+                 <h2 class="section-title text-center">Provincia de Buenos Aires (PBA)</h2>
+                 <div class="space-y-8">
+                    <div class="card">
+                        <div class="text-center">
+                            <div class="icon-bg mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5h2m-2 2h2m-2 2h2" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Líder en Turismo Interno</h3>
+                            <p class="text-gray-600">Concentra el <span class="highlight-number text-2xl">30%</span> de la capacidad hotelera de Argentina.</p>
+                            <p class="text-gray-600 mt-2">El <span class="highlight-number text-2xl">99%</span> de sus visitantes son residentes nacionales.</p>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <div class="text-center">
+                            <div class="icon-bg mx-auto">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.125-1.274-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.125-1.274.356-1.857m0 0a3.001 3.001 0 01-2.772 0M11 15a4 4 0 110-8 4 4 0 010 8z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Flujo Masivo de Turistas</h3>
+                            <p class="text-gray-600">Mar del Plata recibe entre <span class="highlight-number text-2xl">7 y 8 millones</span> de turistas por temporada de verano.</p>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <div class="text-center">
+                            <div class="icon-bg mx-auto">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Impacto en Gasto Local</h3>
+                            <p class="text-gray-600">Los turistas gastaron cerca de <span class="highlight-number text-2xl">$19.500 millones</span> en un solo mes (Enero 2025) en destinos bonaerenses.</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+        
+        <!-- Synthesis section -->
+        <section class="mt-16">
+            <h2 class="section-title">Conclusión: ¿Por Qué es Relevante para los Alquileres Temporarios?</h2>
+            <div class="bg-white rounded-lg p-8 shadow-lg text-center">
+                 <p class="text-xl text-gray-700">El <span class="font-bold text-emerald-700">alto impacto económico del turismo</span> en ambas jurisdicciones explica el creciente interés por <span class="font-bold text-emerald-700">regular y formalizar</span> el mercado de alquileres temporarios. Un sector bien gestionado puede potenciar el PBI y el empleo, mientras que la falta de control puede generar distorsiones en el mercado de la vivienda.</p>
+            </div>
+        </section>
+
+        <!-- Footer/Sources -->
+        <footer class="text-center mt-16 pt-6 border-t border-gray-300">
+            <p class="text-sm text-gray-500">Fuentes: Datos extraídos de WTTC, Ministerio de Hacienda, Gobierno de PBA y otras fuentes oficiales.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
