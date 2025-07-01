@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de Vida del Producto Interactivo con IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .curve-path {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: draw-curve 2s ease-out forwards;
+        }
+        @keyframes draw-curve { to { stroke-dashoffset: 0; } }
+        .stage-point, .nav-button { transition: all 0.3s ease-in-out; }
+        .content-panel { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .content-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Estilos para el Modal */
+        #ai-modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #ai-modal-panel {
+            transition: all 0.3s ease-in-out;
+        }
+        .spinner {
+            border-top-color: #4f46e5;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-5xl bg-white rounded-2xl shadow-xl p-6 md:p-10">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Ciclo de Vida del Producto</h1>
+            <p class="text-gray-500 mt-2">Selecciona una fase para ver la estrategia y poténciala con IA.</p>
+        </header>
+
+        <!-- Gráfico de la Curva -->
+        <div class="w-full mb-8">
+            <svg viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet" class="w-full">
+                <line x1="40" y1="220" x2="780" y2="220" stroke="#cbd5e1" stroke-width="2"/>
+                <line x1="40" y1="20" x2="40" y2="220" stroke="#cbd5e1" stroke-width="2"/>
+                <text x="790" y="235" text-anchor="end" font-size="16" fill="#64748b">Tiempo</text>
+                <text x="20" y="125" text-anchor="middle" font-size="16" fill="#64748b" transform="rotate(-90, 20, 125)">Ventas</text>
+                <path d="M 50,220 C 150,220 200,50 400,50 C 600,50 650,220 750,220" fill="none" stroke="#4f46e5" stroke-width="4" class="curve-path"/>
+                <g class="stage-point cursor-pointer" data-stage="introduccion"><circle cx="125" cy="180" r="10" fill="#a5b4fc"></circle><circle cx="125" cy="180" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="125" y="245" text-anchor="middle" font-size="18" font-weight="600" fill="#4f46e5">Introducción</text></g>
+                <g class="stage-point cursor-pointer" data-stage="crecimiento"><circle cx="300" cy="75" r="10" fill="#a5b4fc"></circle><circle cx="300" cy="75" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="300" y="40" text-anchor="middle" font-size="18" font-weight="600" fill="#4f46e5">Crecimiento</text></g>
+                <g class="stage-point cursor-pointer" data-stage="madurez"><circle cx="500" cy="75" r="10" fill="#a5b4fc"></circle><circle cx="500" cy="75" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="500" y="40" text-anchor="middle" font-size="18" font-weight="600" fill="#4f46e5">Madurez</text></g>
+                <g class="stage-point cursor-pointer" data-stage="declive"><circle cx="675" cy="180" r="10" fill="#a5b4fc"></circle><circle cx="675" cy="180" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="675" y="245" text-anchor="middle" font-size="18" font-weight="600" fill="#4f46e5">Declive</text></g>
+            </svg>
+        </div>
+
+        <!-- Navegación -->
+        <div class="flex flex-wrap justify-center border-b-2 border-gray-200 mb-6 -mx-2">
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="introduccion">Introducción</button>
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="crecimiento">Crecimiento</button>
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="madurez">Madurez</button>
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="declive">Declive</button>
+        </div>
+
+        <!-- Contenido de las Etapas -->
+        <div class="lifecycle-content relative">
+            <!-- Introducción -->
+            <div class="content-panel" id="introduccion" data-stage-title="Introducción">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Producto</h3><p class="text-indigo-700 data-text">•Cerraduras IoT básicas <br>• Plataforma inicial configurada <br>• Servicio piloto con host local</p></div>
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Distribución</h3><p class="text-indigo-700 data-text">•Canales selectivos: property managers & ferias inmobiliarias<br> • Alianzas con 2-3 co-hosts locales</p></div>
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Promoción</h3><p class="text-indigo-700 data-text">•Webinars y demos in situ para primeros usuarios <br>• Artículos en blogs especializados <br>• Descuentos piloto</p></div>
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Precios</h3><p class="text-indigo-700 data-text">•Precio premium de lanzamiento (cost-plus) <br>• Suscripción mensual base</p></div>
+                </div>
+                <div class="text-center"><button class="ai-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">✨ Analizar Estrategia con IA</button></div>
+            </div>
+
+            <!-- Crecimiento -->
+            <div class="content-panel" id="crecimiento" data-stage-title="Crecimiento">
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Producto</h3><p class="text-green-700 data-text">•Integración con PMS <br>• App móvil para huéspedes<br> • Accesos temporales avanzados</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Distribución</h3><p class="text-green-700 data-text">•Expansión a más property managers y OTA<br> • Nuevos hosts locales onboarded</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Promoción</h3><p class="text-green-700 data-text">•Campañas digitales (LinkedIn, Google Ads) <br>• Casos de éxito y testimonios <br>• Email marketing dirigido</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Precios</h3><p class="text-green-700 data-text">•Precios de penetración por volumen <br>• Paquetes flexibles para ≥5 unidades</p></div>
+                </div>
+                <div class="text-center"><button class="ai-button bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">✨ Analizar Estrategia con IA</button></div>
+            </div>
+
+            <!-- Madurez -->
+            <div class="content-panel" id="madurez" data-stage-title="Madurez">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Producto</h3><p class="text-blue-700 data-text">•Paquetes avanzados (sensores, alarmas)<br> • Servicios premium (soporte 24/7)</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Distribución</h3><p class="text-blue-700 data-text">•Distribución masiva via partnerships con property managers <br>• Integración en marketplaces de alquiler</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Promoción</h3><p class="text-blue-700 data-text">•Programas de fidelidad y referidos<br> • Publicidad de marca en canales masivos <br>• Retargeting personalizado</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Precios</h3><p class="text-blue-700 data-text">•Tarifas competitivas de mercado<br> • Suscripción anual con 10% de descuento</p></div>
+                </div>
+                <div class="text-center"><button class="ai-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">✨ Analizar Estrategia con IA</button></div>
+            </div>
+
+            <!-- Declive -->
+            <div class="content-panel" id="declive" data-stage-title="Declive">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Producto</h3><p class="text-red-700 data-text">•Portafolio reducido: versiones más rentables<br>•Retirada de hardware obsoleto</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Distribución</h3><p class="text-red-700 data-text">•Distribución selectiva en canales rentables <br>•Upsell a clientes leales</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Promoción</h3><p class="text-red-700 data-text">•Inversión mínima en publicidad <br>•Comunicación dirigida a clientes existentes</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Precios</h3><p class="text-red-700 data-text">•Ofertas de liquidación para módulos obsoletos<br> •Precios de "cosecha" (tarifa mínima)</p></div>
+                </div>
+                <div class="text-center"><button class="ai-button bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">✨ Analizar Estrategia con IA</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para la respuesta de la IA -->
+    <div id="ai-modal-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 hidden items-center justify-center p-4">
+        <div id="ai-modal-panel" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
+            <header class="p-5 border-b border-gray-200 flex justify-between items-center">
+                <h2 id="ai-modal-title" class="text-2xl font-bold text-gray-800">Análisis IA</h2>
+                <button id="ai-modal-close" class="text-gray-400 hover:text-gray-600">&times;</button>
+            </header>
+            <main id="ai-modal-content" class="p-6 overflow-y-auto">
+                <!-- El contenido se generará aquí -->
+                <div id="ai-modal-loader" class="text-center py-10">
+                    <div class="spinner w-12 h-12 rounded-full border-4 border-gray-200 mx-auto"></div>
+                    <p class="mt-4 text-gray-600">Analizando estrategia... Esto puede tardar unos segundos.</p>
+                </div>
+                <div id="ai-modal-results" class="hidden"></div>
+            </main>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const stagePoints = document.querySelectorAll('.stage-point');
+            const contentPanels = document.querySelectorAll('.content-panel');
+            const aiButtons = document.querySelectorAll('.ai-button');
+            const modalBackdrop = document.getElementById('ai-modal-backdrop');
+            const modalPanel = document.getElementById('ai-modal-panel');
+            const modalClose = document.getElementById('ai-modal-close');
+            const modalTitle = document.getElementById('ai-modal-title');
+            const modalLoader = document.getElementById('ai-modal-loader');
+            const modalResults = document.getElementById('ai-modal-results');
+
+            const stageColors = { introduccion: 'indigo', crecimiento: 'green', madurez: 'blue', declive: 'red' };
+
+            function setActiveStage(stage) {
+                const activeColor = stageColors[stage] || 'indigo';
+                navButtons.forEach(btn => {
+                    btn.classList.toggle(`text-${activeColor}-600`, btn.dataset.stage === stage);
+                    btn.classList.toggle(`border-${activeColor}-500`, btn.dataset.stage === stage);
+                    btn.classList.toggle('text-gray-500', btn.dataset.stage !== stage);
+                    btn.classList.toggle('border-transparent', btn.dataset.stage !== stage);
+                });
+                stagePoints.forEach(point => {
+                    const circle = point.querySelector('circle:first-of-type');
+                    if (point.dataset.stage === stage) {
+                        circle.setAttribute('fill', `#${activeColor === 'indigo' ? '4f46e5' : activeColor === 'green' ? '16a34a' : activeColor === 'blue' ? '2563eb' : 'dc2626'}`);
+                        circle.setAttribute('r', '14');
+                    } else {
+                        circle.setAttribute('fill', '#a5b4fc');
+                        circle.setAttribute('r', '10');
+                    }
+                });
+                contentPanels.forEach(panel => panel.classList.toggle('active', panel.id === stage));
+            }
+
+            navButtons.forEach(button => button.addEventListener('click', () => setActiveStage(button.dataset.stage)));
+            stagePoints.forEach(point => {
+                point.addEventListener('click', () => setActiveStage(point.dataset.stage));
+                const hoverRing = point.querySelector('.hover-ring');
+                point.addEventListener('mouseenter', () => hoverRing.classList.remove('hidden'));
+                point.addEventListener('mouseleave', () => hoverRing.classList.add('hidden'));
+            });
+
+            // --- Lógica de la IA y el Modal ---
+
+            function showModal() {
+                modalBackdrop.classList.remove('hidden');
+                modalBackdrop.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    modalBackdrop.classList.remove('opacity-0');
+                    modalPanel.classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            }
+
+            function hideModal() {
+                modalBackdrop.classList.add('opacity-0');
+                modalPanel.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modalBackdrop.classList.add('hidden');
+                    modalBackdrop.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+            
+            modalClose.addEventListener('click', hideModal);
+            modalBackdrop.addEventListener('click', (e) => {
+                if (e.target === modalBackdrop) {
+                    hideModal();
+                }
+            });
+
+            aiButtons.forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const panel = e.target.closest('.content-panel');
+                    const stageTitle = panel.dataset.stageTitle;
+                    const dataElements = panel.querySelectorAll('.data-text');
+                    
+                    let strategyText = "";
+                    dataElements.forEach(el => {
+                        const category = el.previousElementSibling.textContent;
+                        const text = el.innerHTML.replace(/<br>/g, ' ').replace(/•/g, '');
+                        strategyText += `${category}: ${text}\n`;
+                    });
+
+                    modalTitle.textContent = `Análisis IA para: ${stageTitle}`;
+                    modalResults.innerHTML = '';
+                    modalResults.classList.add('hidden');
+                    modalLoader.classList.remove('hidden');
+                    showModal();
+
+                    try {
+                        const prompt = `Como experto en estrategia de producto, analiza la siguiente fase del ciclo de vida de un producto y su estrategia.
+                        Fase: ${stageTitle}
+                        Estrategia actual: ${strategyText}
+                        
+                        Genera un análisis en formato JSON.`;
+                        
+                        const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                        const payload = {
+                            contents: chatHistory,
+                            generationConfig: {
+                                responseMimeType: "application/json",
+                                responseSchema: {
+                                    type: "OBJECT",
+                                    properties: {
+                                        estrategiaDetallada: { type: "STRING", description: "Expande los puntos de la estrategia en un párrafo detallado, ofreciendo tácticas concretas." },
+                                        riesgos: { type: "ARRAY", items: { type: "STRING" }, description: "Una lista de 3 riesgos potenciales para esta etapa." },
+                                        oportunidades: { type: "ARRAY", items: { type: "STRING" }, description: "Una lista de 3 oportunidades clave para esta etapa." },
+                                        kpis: { type: "ARRAY", items: { type: "STRING" }, description: "Una lista de 4 KPIs cruciales con una breve explicación de su importancia." }
+                                    }
+                                }
+                            }
+                        };
+                        const apiKey = ""; // Dejar en blanco, se gestiona automáticamente
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                        
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Error de la API: ${response.statusText}`);
+                        }
+
+                        const result = await response.json();
+                        
+                        if (result.candidates && result.candidates.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            const data = JSON.parse(text);
+                            displayAIResults(data);
+                        } else {
+                            throw new Error("Respuesta inesperada de la API.");
+                        }
+
+                    } catch (error) {
+                        console.error("Error al llamar a la API de Gemini:", error);
+                        modalResults.innerHTML = `<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">¡Error!</strong>
+                            <span class="block sm:inline">No se pudo generar el análisis. Por favor, inténtalo de nuevo más tarde.</span>
+                        </div>`;
+                    } finally {
+                        modalLoader.classList.add('hidden');
+                        modalResults.classList.remove('hidden');
+                    }
+                });
+            });
+
+            function displayAIResults(data) {
+                let html = `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-2">Estrategia Detallada</h4>
+                            <p class="text-gray-600 leading-relaxed">${data.estrategiaDetallada}</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-700 mb-2">Riesgos Potenciales</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">${data.riesgos.map(item => `<li>${item}</li>`).join('')}</ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-700 mb-2">Oportunidades Clave</h4>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">${data.oportunidades.map(item => `<li>${item}</li>`).join('')}</ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-2">KPIs Sugeridos</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">${data.kpis.map(item => `<li>${item}</li>`).join('')}</ul>
+                        </div>
+                    </div>
+                `;
+                modalResults.innerHTML = html;
+            }
+
+            setActiveStage('introduccion');
+        });
+    </script>
+</body>
+</html>
