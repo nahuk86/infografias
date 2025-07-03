@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de Vida del Servicio Interactivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .curve-path {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: draw-curve 2s ease-out forwards;
+        }
+        #sales-curve { animation-delay: 0s; }
+        #profit-curve { animation-delay: 0.5s; } /* Retraso para efecto escalonado */
+
+        @keyframes draw-curve { to { stroke-dashoffset: 0; } }
+        .stage-point, .nav-button { transition: all 0.3s ease-in-out; }
+        .content-panel { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .content-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Estilos para el Modal */
+        #ai-modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #ai-modal-panel {
+            transition: all 0.3s ease-in-out;
+        }
+        .spinner {
+            border-top-color: #4f46e5;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-5xl bg-white rounded-2xl shadow-xl p-6 md:p-10">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Ciclo de Vida del Servicio - Negocio de IOT</h1>
+            <p class="text-gray-500 mt-2">Control de acceso y facilidades para propiedades en alquiler de manera remota.</p>
+        </header>
+
+        <div class="w-full mb-4">
+            <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet" class="w-full">
+                <line x1="40" y1="250" x2="780" y2="250" stroke="#cbd5e1" stroke-width="2"/> <line x1="40" y1="20" x2="40" y2="280" stroke="#cbd5e1" stroke-width="2"/> <text x="790" y="265" text-anchor="end" font-size="16" fill="#64748b">Tiempo</text>
+                <text x="20" y="150" text-anchor="middle" font-size="16" fill="#64748b" transform="rotate(-90, 20, 150)">Pesos (ARS)</text>
+                <text x="30" y="255" text-anchor="end" font-size="14" fill="#64748b">0</text> <path id="sales-curve" d="M 50,250 C 150,250 200,80 400,80 C 600,80 650,220 750,220" fill="none" stroke="#4f46e5" stroke-width="4" class="curve-path"/>
+                <path id="profit-curve" d="M 50,280 C 150,280 250,180 400,100 C 550,100 600,180 750,190" fill="none" stroke="#dc2626" stroke-width="4" class="curve-path"/>
+
+                <g class="stage-point cursor-pointer" data-stage="introduccion"><circle cx="125" cy="218" r="10" fill="#a5b4fc"></circle><circle cx="125" cy="218" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="125" y="280" text-anchor="middle" font-size="18" font-weight="600" fill="#4338ca">Introducción</text></g>
+                <g class="stage-point cursor-pointer" data-stage="crecimiento"><circle cx="300" cy="98" r="10" fill="#a5b4fc"></circle><circle cx="300" cy="98" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="300" y="60" text-anchor="middle" font-size="18" font-weight="600" fill="#4338ca">Crecimiento</text></g>
+                <g class="stage-point cursor-pointer" data-stage="madurez"><circle cx="500" cy="98" r="10" fill="#a5b4fc"></circle><circle cx="500" cy="98" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="500" y="60" text-anchor="middle" font-size="18" font-weight="600" fill="#4338ca">Madurez</text></g>
+                <g class="stage-point cursor-pointer" data-stage="declive"><circle cx="675" cy="218" r="10" fill="#a5b4fc"></circle><circle cx="675" cy="218" r="15" fill="#4f46e5" fill-opacity="0.2" class="hover-ring hidden"></circle><text x="675" y="280" text-anchor="middle" font-size="18" font-weight="600" fill="#4338ca">Declive</text></g>
+            </svg>
+        </div>
+        
+        <div class="flex justify-center items-center space-x-6 mb-8">
+            <div class="flex items-center">
+                <span class="h-3 w-6 rounded-full bg-[#4f46e5] mr-2"></span>
+                <span class="text-gray-600 font-semibold">Ventas</span>
+            </div>
+            <div class="flex items-center">
+                <span class="h-3 w-6 rounded-full bg-[#dc2626] mr-2"></span>
+                <span class="text-gray-600 font-semibold">Utilidades</span>
+            </div>
+        </div>
+
+
+        <div class="flex flex-wrap justify-center border-b-2 border-gray-200 mb-6 -mx-2">
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="introduccion">Introducción</button>
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="crecimiento">Crecimiento</button>
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="madurez">Madurez</button>
+            <button class="nav-button flex-auto md:flex-initial text-center py-3 px-4 mx-2 font-semibold text-gray-500 border-b-4 border-transparent" data-stage="declive">Declive</button>
+        </div>
+
+        <div class="lifecycle-content relative">
+            <div class="content-panel" id="introduccion" data-stage-title="Introducción">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Producto</h3><p class="text-indigo-700 data-text">•Cerraduras IoT básicas <br>• Plataforma inicial configurada <br>• Servicio piloto con host local</p></div>
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Distribución</h3><p class="text-indigo-700 data-text">•Canales selectivos: property managers & ferias inmobiliarias<br> • Alianzas con 2-3 co-hosts locales</p></div>
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Promoción</h3><p class="text-indigo-700 data-text">•Webinars y demos in situ para primeros usuarios <br>• Artículos en blogs especializados <br>• Descuentos piloto</p></div>
+                    <div class="bg-indigo-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-indigo-800 mb-2">Precios</h3><p class="text-indigo-700 data-text">•Precio premium de lanzamiento (cost-plus) <br>• Suscripción mensual base</p></div>
+                </div>
+            </div>
+
+            <div class="content-panel" id="crecimiento" data-stage-title="Crecimiento">
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Producto</h3><p class="text-green-700 data-text">•Integración con PMS <br>• App móvil para huéspedes<br> • Accesos temporales avanzados</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Distribución</h3><p class="text-green-700 data-text">•Expansión a más property managers y OTA<br> • Nuevos hosts locales onboarded</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Promoción</h3><p class="text-green-700 data-text">•Campañas digitales (LinkedIn, Google Ads) <br>• Casos de éxito y testimonios <br>• Email marketing dirigido</p></div>
+                    <div class="bg-green-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-green-800 mb-2">Precios</h3><p class="text-green-700 data-text">•Precios de penetración por volumen <br>• Paquetes flexibles para ≥5 unidades</p></div>
+                </div>
+            </div>
+
+            <div class="content-panel" id="madurez" data-stage-title="Madurez">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Producto</h3><p class="text-blue-700 data-text">•Paquetes avanzados (sensores, alarmas)<br> • Servicios premium (soporte 24/7)</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Distribución</h3><p class="text-blue-700 data-text">•Distribución masiva via partnerships con property managers <br>• Integración en marketplaces de alquiler</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Promoción</h3><p class="text-blue-700 data-text">•Programas de fidelidad y referidos<br> • Publicidad de marca en canales masivos <br>• Retargeting personalizado</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-blue-800 mb-2">Precios</h3><p class="text-blue-700 data-text">•Tarifas competitivas de mercado<br> • Suscripción anual con 10% de descuento</p></div>
+                </div>
+            </div>
+
+            <div class="content-panel" id="declive" data-stage-title="Declive">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Producto</h3><p class="text-red-700 data-text">•Portafolio reducido: versiones más rentables<br>•Retirada de hardware obsoleto</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Distribución</h3><p class="text-red-700 data-text">•Distribución selectiva en canales rentables <br>•Upsell a clientes leales</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Promoción</h3><p class="text-red-700 data-text">•Inversión mínima en publicidad <br>•Comunicación dirigida a clientes existentes</p></div>
+                    <div class="bg-red-50 p-4 rounded-lg"><h3 class="font-bold text-lg text-red-800 mb-2">Precios</h3><p class="text-red-700 data-text">•Ofertas de liquidación para módulos obsoletos<br> •Precios de "cosecha" (tarifa mínima)</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ai-modal-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 hidden items-center justify-center p-4">
+         <div id="ai-modal-panel" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col transform scale-95 opacity-0">
+             <header class="p-5 border-b border-gray-200 flex justify-between items-center">
+                 <h2 id="ai-modal-title" class="text-2xl font-bold text-gray-800">Análisis IA</h2>
+                 <button id="ai-modal-close" class="text-gray-400 hover:text-gray-600 text-3xl leading-none">&times;</button>
+             </header>
+             <main id="ai-modal-content" class="p-6 overflow-y-auto">
+                 <div id="ai-modal-loader" class="text-center py-10">
+                     <div class="spinner w-12 h-12 rounded-full border-4 border-gray-200 mx-auto"></div>
+                     <p class="mt-4 text-gray-600">Analizando estrategia... Esto puede tardar unos segundos.</p>
+                 </div>
+                 <div id="ai-modal-results" class="hidden"></div>
+             </main>
+         </div>
+     </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const stagePoints = document.querySelectorAll('.stage-point');
+            const contentPanels = document.querySelectorAll('.content-panel');
+            
+            // La lógica del modal de IA se mantiene igual, pero la eliminamos de esta sección 
+            // para no añadir un botón de "Analizar IA" a cada panel.
+            // Si quieres añadirlo, puedes insertar este botón dentro de cada 'content-panel':
+            // <button class="ai-button ...">Analizar con IA</button>
+            // Y descomentar la lógica correspondiente.
+            
+            const stageColors = { introduccion: 'indigo', crecimiento: 'green', madurez: 'blue', declive: 'red' };
+
+            function setActiveStage(stage) {
+                const activeColor = stageColors[stage] || 'indigo';
+                
+                navButtons.forEach(btn => {
+                    const color = stageColors[btn.dataset.stage];
+                    btn.classList.toggle(`text-${color}-600`, btn.dataset.stage === stage);
+                    btn.classList.toggle(`border-${color}-500`, btn.dataset.stage === stage);
+                    btn.classList.toggle('text-gray-500', btn.dataset.stage !== stage);
+                    btn.classList.toggle('border-transparent', btn.dataset.stage !== stage);
+                });
+
+                stagePoints.forEach(point => {
+                    const circle = point.querySelector('circle:first-of-type');
+                    const text = point.querySelector('text');
+
+                    if (point.dataset.stage === stage) {
+                        const stageColorCode = getComputedStyle(document.documentElement).getPropertyValue(`--color-${activeColor}-600`) || (stageColors[stage] === 'indigo' ? '#4f46e5' : stageColors[stage] === 'green' ? '#16a34a' : stageColors[stage] === 'blue' ? '#2563eb' : '#dc2626');
+                        circle.setAttribute('fill', stageColorCode);
+                        text.setAttribute('fill', stageColorCode);
+                        circle.setAttribute('r', '14');
+                    } else {
+                        circle.setAttribute('fill', '#a5b4fc');
+                        text.setAttribute('fill', '#4338ca');
+                        circle.setAttribute('r', '10');
+                    }
+                });
+
+                contentPanels.forEach(panel => {
+                    panel.classList.toggle('active', panel.id === stage)
+                });
+            }
+
+            navButtons.forEach(button => button.addEventListener('click', () => setActiveStage(button.dataset.stage)));
+            stagePoints.forEach(point => {
+                point.addEventListener('click', () => setActiveStage(point.dataset.stage));
+                const hoverRing = point.querySelector('.hover-ring');
+                point.addEventListener('mouseenter', () => hoverRing.classList.remove('hidden'));
+                point.addEventListener('mouseleave', () => hoverRing.classList.add('hidden'));
+            });
+
+            // Lógica del Modal (sin cambios, la dejamos preparada por si se añade el botón)
+            const modalBackdrop = document.getElementById('ai-modal-backdrop');
+            const modalPanel = document.getElementById('ai-modal-panel');
+            const modalClose = document.getElementById('ai-modal-close');
+            
+            function hideModal() {
+                modalBackdrop.classList.add('opacity-0');
+                modalPanel.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modalBackdrop.classList.add('hidden');
+                    modalBackdrop.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+            
+            modalClose.addEventListener('click', hideModal);
+            modalBackdrop.addEventListener('click', (e) => {
+                if (e.target === modalBackdrop) hideModal();
+            });
+
+            // --- CÓDIGO PARA EL MODAL DE IA (DESCOMENTAR SI SE USA) ---
+            /*
+            const aiButtons = document.querySelectorAll('.ai-button');
+            const modalTitle = document.getElementById('ai-modal-title');
+            const modalLoader = document.getElementById('ai-modal-loader');
+            const modalResults = document.getElementById('ai-modal-results');
+
+            function showModal() {
+                modalBackdrop.classList.remove('hidden');
+                modalBackdrop.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    modalBackdrop.classList.remove('opacity-0');
+                    modalPanel.classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            }
+
+            aiButtons.forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    // ... (resto de la lógica de la API sin cambios)
+                });
+            });
+
+            function displayAIResults(data) {
+                // ... (resto de la lógica de display sin cambios)
+            }
+            */
+
+            // Iniciar en la primera etapa
+            setActiveStage('introduccion');
+        });
+    </script>
+</body>
+</html>
