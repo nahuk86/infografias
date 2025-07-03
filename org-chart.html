@@ -44,7 +44,7 @@
 </head>
 <body class="p-4 sm:p-6 md:p-8">
 
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-screen-xl mx-auto">
         <header class="text-center mb-12">
             <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Organigrama Estratégico</h1>
             <p class="text-lg text-gray-500 mt-2">Estructura Organizacional de StayWise</p>
@@ -65,89 +65,101 @@
             </div>
 
             <!-- Nivel 1: Departamentos -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-16">
                 
                 <!-- Departamento Comercial -->
                 <div class="flex flex-col items-center">
-                    <div id="sales" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-64 mb-8">
+                    <div id="sales" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-56 sm:w-60 mb-8">
                          <div class="flex justify-center mb-3">
                             <div class="w-12 h-12 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                             </div>
                         </div>
                         <h3 class="font-semibold text-md text-gray-700">Jefe de Ventas</h3>
-                        <p class="text-xs text-gray-500">Captación B2B y Alianzas Estratégicas</p>
+                        <p class="text-xs text-gray-500">Captación B2B y Alianzas</p>
                     </div>
-                    <!-- Equipo de Ventas -->
                     <div class="space-y-4 w-full flex flex-col items-center">
-                        <div id="sales-team" data-parent="sales" class="org-card bg-gray-50 p-3 rounded-lg w-56 text-center">Ejecutivos de Cuenta</div>
-                        <div id="telemarketing" data-parent="sales" class="org-card p-3 rounded-lg w-56 text-center outsourced">Telemarketing (Outsourcing)</div>
+                        <div id="sales-team" data-parent="sales" class="org-card bg-gray-50 p-3 rounded-lg w-52 text-center">Ejecutivos de Cuenta</div>
+                        <div id="telemarketing" data-parent="sales" class="org-card p-3 rounded-lg w-52 text-center outsourced">Telemarketing (Outsourcing)</div>
                     </div>
                 </div>
 
                 <!-- Departamento de Operaciones -->
                 <div class="flex flex-col items-center">
-                    <div id="ops" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-64 mb-8">
+                    <div id="ops" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-56 sm:w-60 mb-8">
                         <div class="flex justify-center mb-3">
                             <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             </div>
                         </div>
                         <h3 class="font-semibold text-md text-gray-700">Jefe de Operaciones (COO)</h3>
-                        <p class="text-xs text-gray-500">Logística, Red de Hosts y Calidad del Servicio</p>
+                        <p class="text-xs text-gray-500">Logística y Red de Hosts</p>
                     </div>
-                     <!-- Equipo de Operaciones -->
                     <div class="space-y-4 w-full flex flex-col items-center">
-                        <div id="logistics" data-parent="ops" class="org-card bg-gray-50 p-3 rounded-lg w-56 text-center">Logística y Producción de Kits</div>
-                        <div id="hosts" data-parent="ops" class="org-card p-3 rounded-lg w-56 text-center partner">Red de Hosts Locales (Partners)</div>
+                        <div id="purchasing" data-parent="ops" class="org-card bg-gray-50 p-3 rounded-lg w-52 text-center">Compras y Proveedores</div>
+                        <div id="logistics" data-parent="ops" class="org-card bg-gray-50 p-3 rounded-lg w-52 text-center">Logística y Kits</div>
+                        <div id="hosts" data-parent="ops" class="org-card p-3 rounded-lg w-52 text-center partner">Red de Hosts Locales</div>
+                    </div>
+                </div>
+
+                <!-- Departamento de Finanzas y Admin -->
+                <div class="flex flex-col items-center">
+                    <div id="cfo" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-56 sm:w-60 mb-8">
+                        <div class="flex justify-center mb-3">
+                            <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" /></svg>
+                            </div>
+                        </div>
+                        <h3 class="font-semibold text-md text-gray-700">Jefe de Finanzas (CFO)</h3>
+                        <p class="text-xs text-gray-500">Planificación y Control Financiero</p>
+                    </div>
+                    <div class="space-y-4 w-full flex flex-col items-center">
+                        <div id="treasury" data-parent="cfo" class="org-card bg-gray-50 p-3 rounded-lg w-52 text-center">Tesorería (Pagos y Cobranzas)</div>
+                        <div id="accounting" data-parent="cfo" class="org-card p-3 rounded-lg w-52 text-center outsourced">Contabilidad y Legal (Outsourcing)</div>
                     </div>
                 </div>
 
                 <!-- Departamento de Tecnología -->
                 <div class="flex flex-col items-center">
-                    <div id="tech" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-64 mb-8">
+                    <div id="tech" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-56 sm:w-60 mb-8">
                         <div class="flex justify-center mb-3">
                             <div class="w-12 h-12 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                             </div>
                         </div>
                         <h3 class="font-semibold text-md text-gray-700">Jefe de Tecnología (CTO)</h3>
-                        <p class="text-xs text-gray-500">Plataforma IoT y App Móvil</p>
+                        <p class="text-xs text-gray-500">Plataforma IoT y App</p>
                     </div>
-                    <!-- Equipo de Tecnología -->
                     <div class="space-y-4 w-full flex flex-col items-center">
-                        <div id="dev-team" data-parent="tech" class="org-card bg-gray-50 p-3 rounded-lg w-56 text-center">Equipo de Desarrollo In-house</div>
-                        <div id="tech-support" data-parent="tech" class="org-card p-3 rounded-lg w-56 text-center outsourced">Soporte Técnico (Outsourcing)</div>
+                        <div id="dev-team" data-parent="tech" class="org-card bg-gray-50 p-3 rounded-lg w-52 text-center">Desarrollo In-house</div>
+                        <div id="tech-support" data-parent="tech" class="org-card p-3 rounded-lg w-52 text-center outsourced">Soporte Técnico (Outsourcing)</div>
                     </div>
                 </div>
 
                 <!-- Departamento de Marketing y Soporte -->
                 <div class="flex flex-col items-center">
-                    <div id="marketing" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-64 mb-8">
+                    <div id="marketing" data-parent="ceo" class="org-card p-4 rounded-xl shadow-md text-center w-56 sm:w-60 mb-8">
                         <div class="flex justify-center mb-3">
                             <div class="w-12 h-12 bg-rose-100 text-rose-700 rounded-full flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg>
                             </div>
                         </div>
                         <h3 class="font-semibold text-md text-gray-700">Marketing y Soporte</h3>
-                        <p class="text-xs text-gray-500">Marca, Contenido y Experiencia del Cliente</p>
+                        <p class="text-xs text-gray-500">Marca y Experiencia del Cliente</p>
                     </div>
-                     <!-- Equipo de Marketing y Soporte -->
                     <div class="space-y-4 w-full flex flex-col items-center">
-                        <div id="marketing-agency" data-parent="marketing" class="org-card p-3 rounded-lg w-56 text-center outsourced">Agencia de Marketing & PR</div>
-                        <div id="helpdesk" data-parent="marketing" class="org-card bg-gray-50 p-3 rounded-lg w-56 text-center">Helpdesk y QA In-house</div>
-                        <div id="call-center" data-parent="marketing" class="org-card p-3 rounded-lg w-56 text-center outsourced">Call Center 24/7 (Outsourcing)</div>
+                        <div id="marketing-agency" data-parent="marketing" class="org-card p-3 rounded-lg w-52 text-center outsourced">Agencia de Marketing & PR</div>
+                        <div id="helpdesk" data-parent="marketing" class="org-card bg-gray-50 p-3 rounded-lg w-52 text-center">Helpdesk y QA In-house</div>
+                        <div id="call-center" data-parent="marketing" class="org-card p-3 rounded-lg w-52 text-center outsourced">Call Center 24/7 (Outsourcing)</div>
                     </div>
                 </div>
 
             </div>
             
-            <!-- Contenedor para las líneas SVG -->
             <svg id="svg-container" class="absolute top-0 left-0 w-full h-full pointer-events-none" style="z-index: 1;"></svg>
 
         </div>
         
-        <!-- Socios y Tercerizados -->
         <div class="mt-20 pt-10 border-t border-gray-200">
              <h2 class="text-2xl font-bold text-center mb-8 text-gray-700">Ecosistema de Socios y Proveedores</h2>
              <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
@@ -163,14 +175,10 @@
     </div>
 
     <script>
-        // --- DIBUJO DINÁMICO DE CONECTORES CON SVG ---
-        // Esta función se encarga de dibujar las líneas que conectan los nodos del organigrama.
-        // Utiliza SVG para crear curvas suaves y se actualiza automáticamente si la ventana cambia de tamaño.
-
         function drawConnectors() {
             const container = document.getElementById('org-chart-container');
             const svgContainer = document.getElementById('svg-container');
-            svgContainer.innerHTML = ''; // Limpiar conectores previos
+            svgContainer.innerHTML = ''; 
 
             const elements = container.querySelectorAll('[data-parent]');
 
@@ -183,16 +191,13 @@
                     const childRect = childEl.getBoundingClientRect();
                     const containerRect = container.getBoundingClientRect();
 
-                    // Evitar dibujar si algún elemento no es visible
                     if (parentRect.width === 0 || childRect.width === 0) return;
 
-                    // Puntos de inicio y fin relativos al contenedor
                     const startX = parentRect.left + parentRect.width / 2 - containerRect.left;
                     const startY = parentRect.bottom - containerRect.top;
                     const endX = childRect.left + childRect.width / 2 - containerRect.left;
                     const endY = childRect.top - containerRect.top;
 
-                    // Crear una curva suave (curva de Bezier cúbica)
                     const controlY1 = startY + (endY - startY) * 0.5;
                     const controlY2 = endY - (endY - startY) * 0.5;
                     
@@ -207,11 +212,12 @@
             });
         }
 
-        // Usar un observador para redibujar si cambian los elementos, además del resize.
         const observer = new ResizeObserver(drawConnectors);
-        observer.observe(document.getElementById('org-chart-container'));
+        const chartContainer = document.getElementById('org-chart-container');
+        if (chartContainer) {
+            observer.observe(chartContainer);
+        }
 
-        // Dibujar al cargar la página y al redimensionar la ventana
         window.addEventListener('load', drawConnectors);
         window.addEventListener('resize', drawConnectors);
     </script>
