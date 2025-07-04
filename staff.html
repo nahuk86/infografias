@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requerimientos de RRHH - StayWise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .job-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3b82f6;
+        }
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+        }
+        .detail-title {
+            font-weight: 600;
+            color: #374151;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        ul {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+        li {
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800">Requerimientos de Recursos Humanos</h1>
+            <p class="text-lg text-gray-500 mt-2">Descripción de la Plantilla y Perfiles Clave en StayWise</p>
+        </header>
+
+        <!-- Staff Gerencial -->
+        <section>
+            <h2 class="section-title">Staff Gerencial (C-Level / Jefaturas)</h2>
+            <div class="space-y-8">
+                <!-- Card para cada puesto gerencial -->
+                <div class="job-card">
+                    <h3 class="job-title">Jefe de Operaciones (COO)</h3>
+                    <p class="mt-1 text-gray-500">Responsable de toda la operación del servicio, garantizando la calidad, eficiencia y escalabilidad. Lidera la logística, la red de Hosts y el soporte técnico en campo.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Diseñar y optimizar los protocolos de check-in/out.</li>
+                        <li>Gestionar y expandir la red de Hosts Locales.</li>
+                        <li>Supervisar al equipo de técnicos de instalación y soporte.</li>
+                        <li>Asegurar el cumplimiento de los SLAs (Acuerdos de Nivel de Servicio).</li>
+                        <li>Gestionar la cadena de suministro y el inventario de hardware.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Ing. Industrial, Adm. de Empresas, Hotelería o afines.</li>
+                        <li><strong>Experiencia:</strong> +7 años en gestión de operaciones, idealmente en logística, hospitalidad o servicios.</li>
+                        <li><strong>Competencias:</strong> Liderazgo, resolución de problemas complejos, pensamiento sistémico, orientación a la calidad.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Jefe de Finanzas (CFO)</h3>
+                    <p class="mt-1 text-gray-500">Encargado de la salud financiera de la empresa. Lidera la planificación financiera, el control de gestión, la tesorería y la relación con inversores.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Elaborar el presupuesto anual y realizar el control presupuestario.</li>
+                        <li>Analizar la rentabilidad por línea de negocio.</li>
+                        <li>Gestionar el flujo de caja, pagos y cobranzas.</li>
+                        <li>Liderar rondas de financiación y la relación con el directorio.</li>
+                        <li>Supervisar la gestión contable y fiscal (interna o externa).</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Lic. en Finanzas, Contador Público, Actuario o afines. MBA deseable.</li>
+                        <li><strong>Experiencia:</strong> +7 años en roles financieros, preferentemente en startups o sector tecnológico.</li>
+                        <li><strong>Competencias:</strong> Visión estratégica, capacidad analítica, negociación, modelado financiero.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Jefe de Tecnología (CTO)</h3>
+                    <p class="mt-1 text-gray-500">Responsable de la visión y ejecución tecnológica de la empresa. Lidera el desarrollo de la plataforma de software, la arquitectura IoT y la infraestructura.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Definir el roadmap tecnológico de la compañía.</li>
+                        <li>Liderar al equipo de desarrollo de software e infraestructura.</li>
+                        <li>Investigar y seleccionar nuevas tecnologías y proveedores de hardware.</li>
+                        <li>Garantizar la seguridad, escalabilidad y fiabilidad de la plataforma.</li>
+                        <li>Gestionar el presupuesto del área de tecnología.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Ing. en Sistemas, Ciencias de la Computación o carrera técnica afín.</li>
+                        <li><strong>Experiencia:</strong> +7 años en desarrollo de software, con experiencia liderando equipos y en arquitectura de sistemas cloud/IoT.</li>
+                        <li><strong>Competencias:</strong> Liderazgo técnico, visión de producto, agilidad, ciberseguridad.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Jefe de Ventas y Mkt (CMO/CSO)</h3>
+                    <p class="mt-1 text-gray-500">Responsable de la estrategia de adquisición de clientes y del crecimiento de los ingresos. Lidera los equipos de marketing, ventas y alianzas.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Diseñar y ejecutar el plan de marketing y ventas.</li>
+                        <li>Definir y monitorear los KPIs de adquisición (CAC, LTV).</li>
+                        <li>Liderar la expansión a nuevos mercados o segmentos.</li>
+                        <li>Gestionar al equipo de ventas B2B y de alianzas.</li>
+                        <li>Construir y posicionar la marca StayWise.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Lic. en Marketing, Comercialización, Adm. de Empresas.</li>
+                        <li><strong>Experiencia:</strong> +7 años liderando equipos comerciales y de marketing, idealmente en B2B SaaS o PropTech.</li>
+                        <li><strong>Competencias:</strong> Visión comercial, marketing digital, growth hacking, negociación.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Jefe de Compras</h3>
+                    <p class="mt-1 text-gray-500">Responsable de la gestión estratégica de proveedores y de la cadena de suministro de hardware y servicios operativos.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Negociar acuerdos marco con proveedores de hardware IoT.</li>
+                        <li>Gestionar el proceso de homologación de nuevos dispositivos.</li>
+                        <li>Optimizar los costos de adquisición de insumos y servicios.</li>
+                        <li>Monitorear el rendimiento y la calidad de los proveedores clave.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Lic. en Adm. de Empresas, Comercio Exterior, o Ing. Industrial.</li>
+                        <li><strong>Experiencia:</strong> +5 años en roles de compras o supply chain, preferentemente de tecnología.</li>
+                        <li><strong>Competencias:</strong> Negociación, gestión de proveedores, análisis de costos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipos Operativos y Especializados -->
+        <section class="mt-16">
+            <h2 class="section-title">Equipos Operativos y Especializados</h2>
+            <div class="space-y-8">
+                <!-- Card para cada puesto operativo -->
+                <div class="job-card">
+                    <h3 class="job-title">Gerentes Regionales</h3>
+                    <p class="mt-1 text-gray-500">Lideran las operaciones en una zona geográfica específica (ej. CABA, Costa Atlántica), asegurando la calidad del servicio y la gestión de la red local de Hosts.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Reclutar, capacitar y supervisar a la red de Hosts en su región.</li>
+                        <li>Ser el punto de contacto para la resolución de problemas operativos complejos.</li>
+                        <li>Gestionar la logística de instalación y mantenimiento en su zona.</li>
+                        <li>Monitorear los KPIs de satisfacción del cliente a nivel regional.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Adm. de Empresas, Hotelería o afines.</li>
+                        <li><strong>Experiencia:</strong> +4 años en gestión de equipos o supervisión en servicios.</li>
+                        <li><strong>Competencias:</strong> Liderazgo local, resolución de problemas, excelentes habilidades interpersonales.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Técnicos de Instalación</h3>
+                    <p class="mt-1 text-gray-500">Ejecutan la instalación, configuración y mantenimiento del hardware IoT en las propiedades de los clientes.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Instalar físicamente cerraduras, sensores y gateways.</li>
+                        <li>Configurar la conectividad de los dispositivos.</li>
+                        <li>Realizar el mantenimiento preventivo y correctivo.</li>
+                        <li>Capacitar al propietario en el uso básico del hardware.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Técnico electrónico, electromecánico o en redes.</li>
+                        <li><strong>Experiencia:</strong> +2 años en instalación de sistemas de seguridad, domótica o redes.</li>
+                        <li><strong>Competencias:</strong> Habilidad técnica, prolijidad, atención al detalle, buen trato con el cliente.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Ejecutivo de Cuentas / Equipo B2B</h3>
+                    <p class="mt-1 text-gray-500">Responsables de la venta consultiva a propietarios individuales (Ejecutivo) o a grandes cuentas como desarrolladoras e inmobiliarias (Equipo B2B).</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Gestionar el ciclo de venta completo, desde la prospección hasta el cierre.</li>
+                        <li>Realizar demostraciones de la plataforma.</li>
+                        <li>Elaborar propuestas comerciales personalizadas.</li>
+                        <li>Cumplir con las metas de ventas individuales y de equipo.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Comercialización, Marketing, Relaciones Públicas.</li>
+                        <li><strong>Experiencia:</strong> +3 años en ventas B2B, preferentemente de servicios o tecnología.</li>
+                        <li><strong>Competencias:</strong> Habilidades de comunicación, negociación, orientación a resultados, manejo de CRM.</li>
+                    </ul>
+                </div>
+                
+                <div class="job-card">
+                    <h3 class="job-title">Equipo de Alianzas</h3>
+                    <p class="mt-1 text-gray-500">Enfocados en desarrollar y gestionar relaciones estratégicas con partners (inmobiliarias, administradores, plataformas) para generar canales de venta indirectos.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Identificar y contactar a potenciales socios estratégicos.</li>
+                        <li>Negociar y cerrar acuerdos de referidos o comisiones.</li>
+                        <li>Capacitar a los partners sobre el servicio StayWise.</li>
+                        <li>Monitorear el rendimiento del canal de alianzas.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Adm. de Empresas, Relaciones Públicas.</li>
+                        <li><strong>Experiencia:</strong> +4 años en desarrollo de negocios o gestión de canales.</li>
+                        <li><strong>Competencias:</strong> Networking, negociación, visión estratégica.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Controller y Tesorería</h3>
+                    <p class="mt-1 text-gray-500">Ejecutan las operaciones financieras diarias, asegurando el control de costos, la gestión de pagos y el flujo de caja.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Realizar la conciliación bancaria y el seguimiento de cuentas.</li>
+                        <li>Gestionar el proceso de facturación, pagos y cobranzas.</li>
+                        <li>Elaborar reportes de gestión financiera para el CFO.</li>
+                        <li>Controlar la ejecución del presupuesto.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Contador Público, Lic. en Administración.</li>
+                        <li><strong>Experiencia:</strong> +3 años en áreas de tesorería, contabilidad o control de gestión.</li>
+                        <li><strong>Competencias:</strong> Capacidad analítica, organización, manejo de sistemas de gestión (ERP).</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Desarrollador (Jr. y Sr.)</h3>
+                    <p class="mt-1 text-gray-500">Miembros del equipo de tecnología que diseñan, codifican, prueban y mantienen la plataforma de software de StayWise.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Desarrollar nuevas funcionalidades para la app y el backend.</li>
+                        <li>Corregir bugs y optimizar el rendimiento del código.</li>
+                        <li>Participar en el diseño de la arquitectura de software.</li>
+                        <li>Realizar pruebas unitarias e integrales.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Ing. en Sistemas, Ciencias de la Computación o autodidacta con experiencia.</li>
+                        <li><strong>Experiencia:</strong> Jr (1-3 años), Sr (+5 años) en desarrollo web/móvil.</li>
+                        <li><strong>Competencias:</strong> Dominio de lenguajes (ej. JavaScript, Python), bases de datos, APIs, metodologías ágiles.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Equipo Infra y Seguridad</h3>
+                    <p class="mt-1 text-gray-500">Responsables de la administración, mantenimiento y seguridad de la infraestructura tecnológica en la nube donde opera la plataforma.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li>Administrar servidores, bases de datos y servicios en la nube (AWS, Azure, GCP).</li>
+                        <li>Implementar y monitorear políticas de ciberseguridad.</li>
+                        <li>Gestionar backups y planes de recuperación ante desastres.</li>
+                        <li>Automatizar el despliegue y la monitorización de la infraestructura.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Ing. en Sistemas, Redes o certificaciones en Cloud/DevOps.</li>
+                        <li><strong>Experiencia:</strong> +4 años en roles de SysAdmin, DevOps o Seguridad Informática.</li>
+                        <li><strong>Competencias:</strong> Administración de sistemas Linux/Windows, scripting, redes, seguridad.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Producto y Customer Success</h3>
+                    <p class="mt-1 text-gray-500">Responsables de definir la evolución del producto y de asegurar que los clientes obtengan el máximo valor del servicio, fomentando la retención y lealtad.</p>
+                    <h4 class="detail-title">Tareas Principales:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Producto:</strong> Investigar el mercado, definir el roadmap y priorizar funcionalidades.</li>
+                        <li><strong>Customer Success:</strong> Realizar el onboarding de nuevos clientes, monitorear su adopción, prevenir el abandono (churn) y gestionar renovaciones.</li>
+                    </ul>
+                    <h4 class="detail-title">Perfil Esperado:</h4>
+                    <ul class="list-disc">
+                        <li><strong>Formación:</strong> Adm. de Empresas, Marketing, Diseño UX, o perfiles técnicos con visión de negocio.</li>
+                        <li><strong>Experiencia:</strong> +4 años en gestión de producto o roles de éxito del cliente en empresas SaaS.</li>
+                        <li><strong>Competencias:</strong> Empatía, visión de producto, análisis de datos, comunicación.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
